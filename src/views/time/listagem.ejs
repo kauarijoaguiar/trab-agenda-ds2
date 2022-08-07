@@ -1,0 +1,33 @@
+<%- include('../includes/head') %>
+    <div class="flex items-center justify-center">
+        <div class="flex-1 flex flex-col space-y-5 lg:space-y-0 lg:flex-row lg:space-x-10 max-w-6xl sm:p-6 sm:my-2 sm:mx-4 sm:rounded-2xl">
+            <div class="flex-1 px-2 sm:px-0">
+                <div class="mt-5 text-center">
+                    <h4 class="mb-0">Nome:<b><%= usuario.nome%></b></h4>
+                    <span class="d-block mb-2">E-mail:<%= usuario.email%></span>
+
+                </div>
+                <div class="flex justify-between items-center">
+                    <h3 class="text-3xl font-extralight text-white/50">Times</h3>
+
+                </div>
+                <div class="mb-10 sm:mb-0 mt-10 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                    <% if(times.length > 0){ %>
+                        <% times.forEach(time=> { %>
+                            <div class="relative group bg-gray-900 py-10 sm:py-20 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-gray-900/80 hover:smooth-hover">
+                                <a href="/times/<%= time.id%>">
+
+                                    <h4 class="text-white text-2xl font-bold capitalize text-center">
+                                        <%= time.nome%>
+                                    </h4>
+                                </a>
+                                <p class="text-white/50">
+                                    <%= time.descricao%>
+                                </p>
+                            </div>
+                            <% }) %>
+                                <% }  %>
+                </div>
+            </div>
+        </div>
+    </div>

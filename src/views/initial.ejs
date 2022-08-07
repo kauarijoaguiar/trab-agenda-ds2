@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    main {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .element {
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid rgb(0, 0, 0);
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      width: 200px;
+    }
+
+    .links {
+      display: flex;
+      justify-content: center;
+    }
+    .pages {
+      text-decoration: none;
+      border: 1px solid black;
+      border-radius: 2px;
+      font-size: 2rem;
+      padding: 5px;
+      margin: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <form action="/" method="POST" enctype="multipart/form-data">
+    <input type="text" name="title"> <br>
+    <input type="text" name="description"> <br>
+    <input type="file" name="image"> <br>
+    <input type="submit" value="VAI"> <br>
+  </form>
+
+  <h1>Minha galeria <%= page %> / <%= Math.ceil(total/5) %>
+  </h1>
+
+  <main>
+    <% for (let i=0; i < images.length; i++) { %>
+      <div class="element">
+        <h1>
+          <%= images[i].title %>
+        </h1>
+        <p>
+          <%= images[i].description %>
+        </p>
+        <img src="<%= images[i].url %>" alt="" />
+      </div>
+      <% } %>
+  </main>
+
+  <div class="links">
+    <% for (let i = 1; i <= Math.ceil(total/5); i++) { %>
+      <a class="pages" href="/?page=<%= i %>"><%= i %></a>
+    <% } %>
+  </div>
+
+</body>
+
+</html>

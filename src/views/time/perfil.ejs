@@ -1,0 +1,22 @@
+<%- include('../includes/head') %>
+    <div class="flex items-center justify-center">
+        <div class="flex justify-between items-center">
+            <div class="container d-flex justify-content-center align-items-center">
+                <div class="card">
+                    <div class="mt-5 text-center">
+                        <h4 class="mb-0"><b><%= time.nome%></b></h4>
+                        <span class="d-block mb-2"><%= time.descricao%></span>
+                        <span class="d-block mb-2">Criado por <%=time.usuario.nome%></span>
+                        <div id="membros">
+                            <% membros.forEach(membro=> { %>
+                                <p>
+                                    <%=membro.usuario.nome%>
+                                </p>
+                                <%})%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
